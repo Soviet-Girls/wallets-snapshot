@@ -34,7 +34,9 @@ bar = IncrementalBar("Processing", max=suply)
 
 
 def get_owner(i):
-    owners.append(contract.functions.ownerOf(i).call())
+    owner = contract.functions.ownerOf(i).call()
+    if owner not in owners:
+        owners.append(owner)
     bar.next()
 
 
